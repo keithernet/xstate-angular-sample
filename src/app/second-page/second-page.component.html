@@ -1,0 +1,18 @@
+<div class="people" *ngIf="!(loading$ | async)">
+  <mat-card class="person-card" *ngFor="let person of (users$ | async)">
+    <mat-card-title>
+      {{person.name}}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{person.company.name}}
+    </mat-card-subtitle>
+    <mat-card-content>
+      <p>Email: {{person.email}}</p>
+      <p>Phone: {{person.phone}}</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+<div *ngIf="loading$ | async">
+  <h1>LOADING...</h1>
+</div>
+
